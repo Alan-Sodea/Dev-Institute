@@ -1,0 +1,174 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+nav
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+body
+{
+    height: 100%;
+}
+
+footer
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+
+.main
+{
+    position: relative;
+    width: calc(100% - 100px);
+    height: auto;
+    padding: 50px;
+    display: block;
+}
+
+.main .card
+{
+
+}
+
+.main .card
+{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: linear 0.5s;
+    position: relative;
+    /* outline: 1px solid red; */
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: calc((100% / 6) - 14px);
+    height: 350px;
+    background-color: rgb(241, 241, 241);
+}
+
+.main .card:hover
+{
+    transition: linear 0.1s;
+    box-shadow: 2px 2px 2px 2px;
+}
+
+.main .card .show
+{
+    position: absolute;
+    top: 0;
+    background: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("Assets/clothe2.png");
+    width: 100%;
+    height: 250px;
+}
+
+.main .card .info
+{
+    background-color: white;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    /* outline: 1px solid black; */
+    padding-top: 10px;
+    border-radius: 0 10 10px 10px;
+}
+
+.main .card .info p
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.main .card .info p b
+{
+    color: green;
+    
+}
+
+.main .card .info p del
+{
+    color: grey;
+    font-size: 14px;
+}
+
+
+.main .card .info button
+{
+    margin-top: 10px;
+    font-size: 13px;
+    background-color: white;
+    border: 0;
+    outline: 1px solid gray;
+    font-family: cursive;
+    padding: 5px;
+    transition: linear 0.6s;
+}
+
+.main .card .info button:hover
+{
+    outline: 1.5px solid black;
+    transition: linear 0.2s;
+    color: white;
+    background-color: gray;
+}
+
+.main .card .info button:active
+{
+    transition: linear 0.1s;
+    outline: 1.5px solid white;
+}
+
+footer p
+{
+    width: 100%;
+    color: white;
+    font-size: 17px;
+    font-family: cursive;
+    padding-top: 10px;
+    text-align: center;
+}
+
+nav div
+{
+    margin-top: 20px;
+    margin-left: 30px;
+    scale: 2;
+    color: white;
+}
+
+
+
+nav a
+{
+    position: absolute;
+    font-family: Berlin Sans FB;
+    color: white;
+    text-decoration: none;
+    top: 20px;
+    right: 20px;
+
+}
+
+::-webkit-scrollbar
+{
+    width: 0;
+}
