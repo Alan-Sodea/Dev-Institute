@@ -39,11 +39,6 @@ footer
 
 .main .card
 {
-
-}
-
-.main .card
-{
     border-radius: 10px;
     margin-bottom: 10px;
     transition: linear 0.5s;
@@ -171,4 +166,34 @@ nav a
 ::-webkit-scrollbar
 {
     width: 0;
+}
+
+@media only screen and (max-width: 600px)
+{
+    .main .card   
+    {
+        width: calc((100% / 1) - 14px);
+        
+    }
+
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px)
+{
+    .main .card   
+    {
+        width: calc((100% / 2) - 14px);
+        
+    }
+
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px)
+{
+    .main .card   
+    {
+        width: calc((100% / 4) - 14px);
+        
+    }
+
 }
