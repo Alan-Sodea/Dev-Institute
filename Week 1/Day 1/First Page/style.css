@@ -1,0 +1,20 @@
+table
+{
+    border: none;
+}
+
+table *
+{
+    border: 1px solid black;
+    margin: 1px;
+}
+
+table th
+{
+    padding: 1px;
+}
+
+table td
+{
+    padding: 10px;
+}
