@@ -17,3 +17,5 @@ class AnagramChecker:
         word = word.lower()
         anagrams = [w for w in self.word_list if self.is_anagram(word, w.lower()) and w.lower() != word]
         return anagrams
+
+        
