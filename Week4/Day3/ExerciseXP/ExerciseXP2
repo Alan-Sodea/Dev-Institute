@@ -1,0 +1,93 @@
+-- Q1
+-- To update the language of some films, use the UPDATE statement. Assume you want to update films with specific film_id values to new languages. Here’s an example:
+-- Update language for films with id 1 and 2
+-- Assuming new language_id values 3 and 4 are valid
+UPDATE film
+SET language_id = 3
+WHERE film_id = 1;
+
+UPDATE film
+SET language_id = 4
+WHERE film_id = 2;
+
+
+
+
+-- Q2
+-- To check which foreign keys are defined for the customer table, you can use:
+-- Query to check foreign keys
+SELECT
+    tc.constraint_name, 
+    tc.constraint_type, 
+    kcu.column_name, 
+    ccu.table_name AS foreign_table_name,
+    ccu.column_name AS foreign_column_name
+FROM
+    information_schema.table_constraints AS tc
+    JOIN information_schema.key_column_usage AS kcu
+      ON tc.constraint_name = kcu.constraint_name
+    JOIN information_schema.constraint_column_usage AS ccu
+      ON ccu.constraint_name = tc.constraint_name
+WHERE tc.table_name = 'customer' AND tc.constraint_type = 'FOREIGN KEY';
+
+
+
+
+-- Q3
+-- To drop the customer_review table:
+DROP TABLE customer_review;
+
+
+
+-- Q4
+-- To find how many rentals are still outstanding:
+SELECT COUNT(*) AS outstanding_rentals
+FROM rental
+WHERE return_date IS NULL;
+
+
+
+-- Q5
+-- To find the 30 most expensive outstanding movies:
+SELECT f.title, f.rental_rate
+FROM film f
+JOIN inventory i ON f.film_id = i.film_id
+JOIN rental r ON i.inventory_id = r.inventory_id
+WHERE r.return_date IS NULL
+ORDER BY f.rental_rate DESC
+LIMIT 30;
+
+-- Q6
+-- 1st Film: Sumo Wrestler with Penelope Monroe
+SELECT f.title
+FROM film f
+JOIN film_actor fa ON f.film_id = fa.film_id
+JOIN actor a ON fa.actor_id = a.actor_id
+WHERE f.description ILIKE '%sumo wrestler%'
+AND a.first_name = 'Penelope' AND a.last_name = 'Monroe';
+
+-- 2nd Film: Short Documentary Rated “R”
+SELECT f.title
+FROM film f
+WHERE f.rating = 'R'
+AND f.length < 60;
+
+-- 3rd Film: Rented by Matthew Mahan, Paid Over $4.00, Returned Between Specific Dates
+SELECT f.title
+FROM film f
+JOIN rental r ON f.film_id = r.film_id
+JOIN customer c ON r.customer_id = c.customer_id
+JOIN payment p ON r.rental_id = p.rental_id
+WHERE c.first_name = 'Matthew' AND c.last_name = 'Mahan'
+AND p.amount > 4.00
+AND r.return_date BETWEEN '2005-07-28' AND '2005-08-01';
+
+-- 4th Film: Watched by Matthew Mahan, Contains “Boat” in Title/Description, Expensive
+SELECT f.title
+FROM film f
+JOIN rental r ON f.film_id = r.film_id
+JOIN customer c ON r.customer_id = c.customer_id
+WHERE c.first_name = 'Matthew' AND c.last_name = 'Mahan'
+AND (f.title ILIKE '%boat%' OR f.description ILIKE '%boat%')
+ORDER BY f.rental_rate DESC;
+

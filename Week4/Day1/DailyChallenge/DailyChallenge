@@ -1,0 +1,5 @@
+-- 1. Count the number of actors in the table
+SELECT COUNT(*) AS number_of_actors FROM actors;
+
+-- 2. Try to add a new actor with some blank fields
+INSERT INTO actors (first_name, last_name, birth_date) VALUES (NULL, 'Smith', NULL);
