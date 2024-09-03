@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robo-Friends Search</title>
+  <link href="https://www.cdnfonts.com/sega-logo-font.font" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://github.com/devtlv/studentsGitHub/blob/master/JS/Week%204/Day5/Mini%20Projects/Mini%20Project%201%20(Robots)/circuit-pattern.png?raw=true');
+      font-family: 'SEGA LOGO FONT', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-shadow: 2px 2px #000000;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    .robots-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      outline: 1px solid black;
+      width: 200px;
+      text-align: center;
+      background-color: rgba(0, 110, 184, 0.798);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card img {
+        border-radius: 50%;
+        outline: 1px solid black;
+    }
+
+    .card h2 {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Robo-Friends</h1>
+  <input type="text" class="search-box" placeholder="Search robots..." onkeyup="filterRobots()">
+  <div class="robots-container" id="robots-container">
+
+  </div>
+
+  <script>
+     const robots = [
+          {
+            id: 1,
+            name: 'Leanne Graham',
+            username: 'Bret',
+            email: 'Sincere@april.biz',
+            image: 'https://robohash.org/1?200x200'
+          },
+          {
+            id: 2,
+            name: 'Ervin Howell',
+            username: 'Antonette',
+            email: 'Shanna@melissa.tv',
+            image: 'https://robohash.org/2?200x200'
+          },
+          {
+            id: 3,
+            name: 'Clementine Bauch',
+            username: 'Samantha',
+            email: 'Nathan@yesenia.net',
+            image: 'https://robohash.org/3?200x200'
+          },
+          {
+            id: 4,
+            name: 'Patricia Lebsack',
+            username: 'Karianne',
+            email: 'Julianne.OConner@kory.org',
+            image: 'https://robohash.org/4?200x200'
+          },
+          {
+            id: 5,
+            name: 'Chelsey Dietrich',
+            username: 'Kamren',
+            email: 'Lucio_Hettinger@annie.ca',
+            image: 'https://robohash.org/5?200x200'
+          },
+          {
+            id: 6,
+            name: 'Mrs. Dennis Schulist',
+            username: 'Leopoldo_Corkery',
+            email: 'Karley_Dach@jasper.info',
+            image: 'https://robohash.org/6?200x200'
+          },
+          {
+            id: 7,
+            name: 'Kurtis Weissnat',
+            username: 'Elwyn.Skiles',
+            email: 'Telly.Hoeger@billy.biz',
+            image: 'https://robohash.org/7?200x200'
+          },
+          {
+            id: 8,
+            name: 'Nicholas Runolfsdottir V',
+            username: 'Maxime_Nienow',
+            email: 'Sherwood@rosamond.me',
+            image: 'https://robohash.org/8?200x200'
+          },
+          {
+            id: 9,
+            name: 'Glenna Reichert',
+            username: 'Delphine',
+            email: 'Chaim_McDermott@dana.io',
+            image:'https://robohash.org/9?200x200'
+          },
+          {
+            id: 10,
+            name: 'Clementina DuBuque',
+            username: 'Moriah.Stanton',
+            email: 'Rey.Padberg@karina.biz',
+            image:'https://robohash.org/10?200x200'
+          }
+          ];
+  
+  const robotsContainer = document.getElementById('robots-container');
+  
+  // Fonction pour créer et afficher les cartes des robots
+  function displayRobots(robots) {
+    robotsContainer.innerHTML = ''; // Clear existing content
+    robots.forEach(robot => {
+      const card = document.createElement('div');
+      card.className = 'card';
+  
+      card.innerHTML = `
+        <img src="${robot.image}" alt="${robot.name}">
+        <h2>${robot.name}</h2>
+        <p>${robot.username}</p>
+        <p>${robot.email}</p>
+      `;
+  
+      robotsContainer.appendChild(card);
+    });
+  }
+  
+  // Fonction pour filtrer les robots en fonction de la recherche
+  function filterRobots() {
+    const searchValue = document.querySelector('.search-box').value.toLowerCase();
+    const filteredRobots = robots.filter(robot =>
+      robot.name.toLowerCase().includes(searchValue)
+    );
+    displayRobots(filteredRobots);
+  }
+  
+  // Afficher tous les robots au chargement initial
+  displayRobots(robots);
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class="container">
+    <% posts.forEach(post => { %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><a href="<%= post.link %>" target="_blank"><%= post.title %></a></h5>
+          <p class="card-text">Published on: <%= post.pubDate %></p>
+          <p class="card-text">Creator: <%= post.creator %></p>
+          <p class="card-text">Category: <%= post.category %></p>
+          <p class="card-text"><%= post.contentSnippet %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  
